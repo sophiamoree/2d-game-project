@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bs8gg10p6dev8"
-path="res://.godot/imported/racoon.png-df8c8c6d8135770c37499e10cb2b74bd.ctex"
+path="res://.godot/imported/racoon.png-45f44238f362b93ed533c60b4e9bf356.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/racoon.png"
-dest_files=["res://.godot/imported/racoon.png-df8c8c6d8135770c37499e10cb2b74bd.ctex"]
+source_file="res://racoon.png"
+dest_files=["res://.godot/imported/racoon.png-45f44238f362b93ed533c60b4e9bf356.ctex"]
 
 [params]
 
