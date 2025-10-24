@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqpddxsbw0hbv"]
+[gd_scene load_steps=3 format=3 uid="uid://cngi26pfovaha"]
 
-[ext_resource type="Texture2D" path="res://stringstar fields/tileset.png" id="1_mi635"]
+[ext_resource type="Texture2D" uid="uid://ca7w27jusb8b0" path="res://stringstar fields/tileset.png" id="1_mi635"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8bxr"]
 size = Vector2(111, 11)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://f4qogcgy7dnf"]
+[gd_scene load_steps=8 format=3 uid="uid://cp5dnvi477g62"]
 
-[ext_resource type="Texture2D" path="res://racoon.png" id="1_drkmq"]
+[ext_resource type="Texture2D" uid="uid://ddl116didpawy" path="res://racoon.png" id="1_drkmq"]
 [ext_resource type="Script" uid="uid://dl4gyny4wgxas" path="res://raccoon.gd" id="1_yudik"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yudik"]
