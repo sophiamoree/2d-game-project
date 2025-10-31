@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs8gg10p6dev8"
-path="res://.godot/imported/racoon.png-45f44238f362b93ed533c60b4e9bf356.ctex"
+uid="uid://c0dyy7nplc2vc"
+path="res://.godot/imported/rotting food 2.png-a11e83ae2c24c9ae27bcd0674cfc9fc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://racoon.png"
-dest_files=["res://.godot/imported/racoon.png-45f44238f362b93ed533c60b4e9bf356.ctex"]
+source_file="res://trash assets/rotting food 2.png"
+dest_files=["res://.godot/imported/rotting food 2.png-a11e83ae2c24c9ae27bcd0674cfc9fc3.ctex"]
 
 [params]
 

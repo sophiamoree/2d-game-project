@@ -1,17 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://dqov2c4b56bu2"]
+[gd_scene load_steps=21 format=3 uid="uid://dsggfn1u1ve5u"]
 
-[ext_resource type="PackedScene" uid="uid://b0710myl71uja" path="res://background forest.tscn" id="1_eqxsl"]
-[ext_resource type="PackedScene" uid="uid://cp5dnvi477g62" path="res://scenes/raccoon.tscn" id="1_jg0dc"]
-[ext_resource type="Texture2D" uid="uid://cjybvb3ckb45d" path="res://green woods two/Tents.png" id="3_b4j7a"]
-[ext_resource type="Texture2D" uid="uid://ynvredr3fpsc" path="res://ruins tileset/Dungeon Ruins Tileset Night.png" id="3_wo48x"]
-[ext_resource type="Texture2D" uid="uid://b382n8a8ia7el" path="res://green woods two/Trees.png" id="4_wo48x"]
-[ext_resource type="PackedScene" uid="uid://bqpddxsbw0hbv" path="res://platform.tscn" id="6_wo48x"]
-[ext_resource type="PackedScene" uid="uid://dsehujx14i01i" path="res://platform straight.tscn" id="7_y0kc7"]
+[ext_resource type="PackedScene" uid="uid://b0710myl71uja" path="res://background forest.tscn" id="1_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://ynvredr3fpsc" path="res://ruins tileset/Dungeon Ruins Tileset Night.png" id="3_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://cjybvb3ckb45d" path="res://green woods two/Tents.png" id="4_vtaks"]
+[ext_resource type="Texture2D" uid="uid://b382n8a8ia7el" path="res://green woods two/Trees.png" id="5_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://bqpddxsbw0hbv" path="res://platform.tscn" id="6_dinhu"]
+[ext_resource type="PackedScene" uid="uid://dsehujx14i01i" path="res://platform straight.tscn" id="7_kvuet"]
+[ext_resource type="PackedScene" uid="uid://csjtsyqqlue68" path="res://spirit.tscn" id="8_gee14"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jm1iu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0kc7"]
-texture = ExtResource("3_wo48x")
+texture = ExtResource("3_0tnpc")
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
@@ -219,7 +219,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_y0kc7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ne2mo"]
-texture = ExtResource("3_b4j7a")
+texture = ExtResource("4_vtaks")
 6:5/0 = 0
 10:5/0 = 0
 16:5/0 = 0
@@ -547,7 +547,7 @@ texture = ExtResource("3_b4j7a")
 sources/0 = SubResource("TileSetAtlasSource_ne2mo")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_que50"]
-texture = ExtResource("4_wo48x")
+texture = ExtResource("5_kvpfn")
 81:3/0 = 0
 20:4/0 = 0
 21:4/0 = 0
@@ -1521,6 +1521,21 @@ texture = ExtResource("4_wo48x")
 [sub_resource type="TileSet" id="TileSet_hey2k"]
 sources/0 = SubResource("TileSetAtlasSource_que50")
 
+[sub_resource type="Animation" id="Animation_y0kc7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(557, 562)]
+}
+
 [sub_resource type="Animation" id="Animation_wo48x"]
 resource_name = "move"
 loop_mode = 2
@@ -1537,7 +1552,13 @@ tracks/0/keys = {
 "values": [Vector2(557, 562), Vector2(489, 562)]
 }
 
-[sub_resource type="Animation" id="Animation_y0kc7"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ne2mo"]
+_data = {
+&"RESET": SubResource("Animation_y0kc7"),
+&"move": SubResource("Animation_wo48x")
+}
+
+[sub_resource type="Animation" id="Animation_6cvei"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1549,13 +1570,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(557, 562)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ne2mo"]
-_data = {
-&"RESET": SubResource("Animation_y0kc7"),
-&"move": SubResource("Animation_wo48x")
+"values": [Vector2(245, 584)]
 }
 
 [sub_resource type="Animation" id="Animation_ne2mo"]
@@ -1575,21 +1590,6 @@ tracks/0/keys = {
 "values": [Vector2(245, 584), Vector2(245, 526)]
 }
 
-[sub_resource type="Animation" id="Animation_6cvei"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(245, 584)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_que50"]
 _data = {
 &"RESET": SubResource("Animation_6cvei"),
@@ -1598,19 +1598,11 @@ _data = {
 
 [node name="game" type="Node2D"]
 
-[node name="TextureRect" parent="." instance=ExtResource("1_eqxsl")]
+[node name="TextureRect" parent="." instance=ExtResource("1_u5sy4")]
 offset_left = 1.0
 offset_top = -1.0
 offset_right = 1149.0
 offset_bottom = 642.0
-
-[node name="raccoon" parent="." instance=ExtResource("1_jg0dc")]
-position = Vector2(74, 575)
-
-[node name="Camera2D" type="Camera2D" parent="raccoon"]
-position = Vector2(-1, -14)
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(89, 641)
@@ -1632,7 +1624,7 @@ format = 2
 tile_set = SubResource("TileSet_hey2k")
 format = 2
 
-[node name="platform" parent="." instance=ExtResource("6_wo48x")]
+[node name="platform" parent="." instance=ExtResource("6_dinhu")]
 position = Vector2(557, 562)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform"]
@@ -1641,10 +1633,10 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="start platform" parent="." instance=ExtResource("6_wo48x")]
+[node name="start platform" parent="." instance=ExtResource("6_dinhu")]
 position = Vector2(76, 579)
 
-[node name="up and down" parent="." instance=ExtResource("7_y0kc7")]
+[node name="up and down" parent="." instance=ExtResource("7_kvuet")]
 position = Vector2(245, 584)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="up and down"]
@@ -1652,3 +1644,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_que50")
 }
 autoplay = "up"
+
+[node name="spirit" parent="." instance=ExtResource("8_gee14")]
+position = Vector2(168, 601)
