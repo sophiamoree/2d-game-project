@@ -1,85 +1,60 @@
-[gd_scene load_steps=9 format=3 uid="uid://f4qogcgy7dnf"]
+[gd_scene load_steps=9 format=3 uid="uid://com315v5a0wwk"]
 
-[ext_resource type="Texture2D" uid="uid://cfxhatrmc1paj" path="res://cat/CatsBlack16x16Tile.png" id="2_6fl1u"]
+[ext_resource type="Texture2D" uid="uid://cfxhatrmc1paj" path="res://cat/CatsBlack16x16Tile.png" id="1_hcucf"]
+[ext_resource type="Script" uid="uid://dqw6jv1mitkxu" path="res://scenes/cat.gd" id="1_se5fe"]
 
-[sub_resource type="GDScript" id="GDScript_myi5k"]
-script/source = "extends CharacterBody2D
+[sub_resource type="AtlasTexture" id="AtlasTexture_52fj1"]
+atlas = ExtResource("1_hcucf")
+region = Rect2(0, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fl1u"]
+atlas = ExtResource("1_hcucf")
+region = Rect2(16, 0, 16, 16)
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -400.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_w46py"]
+atlas = ExtResource("1_hcucf")
+region = Rect2(32, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u0g4"]
+atlas = ExtResource("1_hcucf")
+region = Rect2(48, 0, 16, 16)
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
-"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_34t2a"]
-atlas = ExtResource("2_6fl1u")
-region = Rect2(0, 0, 16, 15)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rlpwj"]
-atlas = ExtResource("2_6fl1u")
-region = Rect2(16, 0, 16, 15)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r543d"]
-atlas = ExtResource("2_6fl1u")
-region = Rect2(32, 0, 16, 15)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bk35k"]
-atlas = ExtResource("2_6fl1u")
-region = Rect2(48, 0, 16, 15)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_r543d"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hdoq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_34t2a")
+"texture": SubResource("AtlasTexture_52fj1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rlpwj")
+"texture": SubResource("AtlasTexture_6fl1u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r543d")
+"texture": SubResource("AtlasTexture_w46py")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bk35k")
+"texture": SubResource("AtlasTexture_2u0g4")
 }],
 "loop": true,
-"name": &"right ",
+"name": &"idle",
 "speed": 6.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bk35k"]
-radius = 5.0990195
+[sub_resource type="CircleShape2D" id="CircleShape2D_2v165"]
+radius = 2.0
 
 [node name="cat" type="CharacterBody2D"]
 z_index = 5
-script = SubResource("GDScript_myi5k")
+collision_layer = 2
+script = ExtResource("1_se5fe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -20)
-sprite_frames = SubResource("SpriteFrames_r543d")
-animation = &"right "
-autoplay = "right "
-frame_progress = 0.19517973
+position = Vector2(1, -11)
+scale = Vector2(1.25, 1.375)
+sprite_frames = SubResource("SpriteFrames_2hdoq")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.21921119
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -13)
-shape = SubResource("CircleShape2D_bk35k")
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_2v165")
