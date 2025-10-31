@@ -1,6 +1,7 @@
 extends Area2D
 
+@onready var gamemanager: Node = %gamemanager
+
 func _on_body_entered(body: Node2D) -> void:
-	print("youve found a spirit!")
-	print("+1 spirit")
+	gamemanager.add_point()
 	queue_free()
