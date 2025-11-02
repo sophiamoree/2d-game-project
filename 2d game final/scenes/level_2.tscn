@@ -1,15 +1,14 @@
-[gd_scene load_steps=30 format=4 uid="uid://dqhlnqtafopyi"]
+[gd_scene load_steps=21 format=3 uid="uid://dqhlnqtafopyi"]
 
 [ext_resource type="PackedScene" uid="uid://com315v5a0wwk" path="res://scenes/cat.tscn" id="1_3bmlt"]
 [ext_resource type="PackedScene" uid="uid://drrrav7wpwoqr" path="res://scenes/cloud_platform.tscn" id="1_b4j7a"]
-[ext_resource type="Script" uid="uid://w4wsfl6ma1vb" path="res://scenes/gamemanager.gd" id="1_que50"]
 [ext_resource type="Texture2D" uid="uid://ynvredr3fpsc" path="res://ruins tileset/Dungeon Ruins Tileset Night.png" id="2_eqxsl"]
 [ext_resource type="PackedScene" uid="uid://k1h4831nwa0k" path="res://scenes/sky.tscn" id="4_wo48x"]
 [ext_resource type="PackedScene" uid="uid://bce2fed4nyr03" path="res://scenes/spirit.tscn" id="6_wo48x"]
 [ext_resource type="PackedScene" uid="uid://cjil05iv1llmw" path="res://scenes/kill_zone.tscn" id="7_y0kc7"]
-[ext_resource type="PackedScene" uid="uid://qy7dgde0s3eo" path="res://scenes/evil_rat.tscn" id="8_6cvei"]
 [ext_resource type="PackedScene" uid="uid://deh2d6su4a20n" path="res://scenes/cloud_platform_smaller.tscn" id="8_ne2mo"]
-[ext_resource type="FontFile" uid="uid://cdw1g726vhgg" path="res://font/3_4_r_font_.ttf" id="9_6cvei"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3bmlt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0kc7"]
 texture = ExtResource("2_eqxsl")
@@ -227,7 +226,43 @@ texture = ExtResource("2_eqxsl")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_y0kc7")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3bmlt"]
+[sub_resource type="Animation" id="Animation_wo48x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(213, 106)]
+}
+
+[sub_resource type="Animation" id="Animation_b4j7a"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(213, 106), Vector2(130, 106)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y0kc7"]
+_data = {
+&"RESET": SubResource("Animation_wo48x"),
+&"move": SubResource("Animation_b4j7a")
+}
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ne2mo"]
 
@@ -307,156 +342,7 @@ _data = {
 &"move": SubResource("Animation_ne2mo")
 }
 
-[sub_resource type="Animation" id="Animation_wo48x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(213, 106)]
-}
-
-[sub_resource type="Animation" id="Animation_b4j7a"]
-resource_name = "move"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(213, 106), Vector2(130, 106)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_y0kc7"]
-_data = {
-&"RESET": SubResource("Animation_wo48x"),
-&"move": SubResource("Animation_b4j7a")
-}
-
-[sub_resource type="Animation" id="Animation_172wr"]
-resource_name = "move"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.04451709, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(821, 361), Vector2(896, 361)]
-}
-
-[sub_resource type="Animation" id="Animation_g2hoc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(821, 361)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fldb1"]
-_data = {
-&"RESET": SubResource("Animation_g2hoc"),
-&"move": SubResource("Animation_172wr")
-}
-
-[sub_resource type="Animation" id="Animation_fldb1"]
-resource_name = "move"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(244, 284), Vector2(192, 284)]
-}
-
-[sub_resource type="Animation" id="Animation_guvtl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(244, 284)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_igmy8"]
-_data = {
-&"RESET": SubResource("Animation_guvtl"),
-&"move": SubResource("Animation_fldb1")
-}
-
 [node name="level 2" type="Node2D"]
-
-[node name="gamemanager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_que50")
-
-[node name="score label" type="Label" parent="gamemanager"]
-offset_left = 756.0
-offset_top = 92.0
-offset_right = 934.0
-offset_bottom = 115.0
-theme_override_colors/font_color = Color(0.52156866, 0.52156866, 0.52156866, 1)
-theme_override_fonts/font = ExtResource("9_6cvei")
-theme_override_font_sizes/font_size = 12
-text = "you found X spirits"
-horizontal_alignment = 3
-
-[node name="world" type="TileMap" parent="."]
-z_index = -10
-position = Vector2(1.0000001, -5.820766e-11)
-rotation = 0.00088570244
-scale = Vector2(0.99999994, 0.99999994)
-tile_set = SubResource("TileSet_ne2mo")
-format = 2
-
-[node name="midground" type="TileMapLayer" parent="world"]
-use_parent_material = true
-position = Vector2(1.0008854, 0.99911404)
-tile_map_data = PackedByteArray("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AAAlABgAAAASAAoAAAAoABgAAAAVAAsAAAAZABsAAAAFAAwAAAAZABwAAAAFAA4AAAAZAB0AAAAFAA4AAAAZAB4AAAAHAAUAAAAZAB8AAAAHAAYAAAAZACAAAAAHAAYAAAAZACEAAAAHAAYAAAAZACIAAAAHAAcAAAAZACMAAAAOAAUAAAAZACQAAAAOAAYAAAAZACUAAAAOAAcAAAAZACYAAAAOAAcAAAAZACcAAAAYAAQAAAALABsAAAAMAAUAAAAMABsAAAAOAAUAAAAMABwAAAAOAAYAAAAMAB0AAAAOAAYAAAAMAB4AAAAOAAcAAAAMAB8AAAANAAYAAAAMACAAAAAYAAAAAAAMACIAAAAYAAIAAAAMACQAAAAYAAIAAAAMACYAAAAFAAwAAAAMACcAAAAFAA4AAAAZABgAAAAIAA4AAAAdABgAAAAIAA4AAAAgABgAAAAIAA4AAAASABkAAAAFAA4AAAASABgAAAAFAAwAAAASABYAAAAYAAIAAAASABQAAAAYAAAAAAASABMAAAAOAAcAAAASABIAAAAOAAYAAAASABEAAAAOAAUAAAATABEAAAAPAAUAAAAUABEAAAAQAAUAAAARABEAAAANAAUAAAAQABEAAAAMAAUAAAARABIAAAAXAAAAAAATABIAAAAWAAAAAAASABAAAAAJAAoAAAARAA8AAAAIAAkAAAARABAAAAAIAAoAAAAaABgAAAAKAAoAAAAbABcAAAALAAkAAAAaABcAAAAVAAsAAAAbABYAAAALAAgAAAAfABgAAAAOAAoAAAAhABgAAAAPAAoAAAAsABgAAAAGAAoAAAAtABgAAAAHAAoAAAAtABcAAAAHAAkAAAA5ABUAAAAFAAEAAAA5ABYAAAAFAAIAAAA5ABcAAAAFAAMAAAA6ABcAAAAGAAMAAAA7ABcAAAAHAAMAAAA7ABYAAAAHAAIAAAA7ABUAAAAHAAEAAAA6ABUAAAAGAAEAAAA6ABYAAAAGAAIAAAA7ABQAAAAPAAcAAAAOAAEAAAAbAA0AAAASAAEAAAAZAA4AAAAMAAEAAAAZAA4AAAALAAIAAAAZAA4AAAAQAAIAAAAZAA4AAAAQAAAAAAAZAA4AAAADAAUAAAAbAA0AAAAFAAUAAAAZAA4AAAAGAAYAAAAZAA4AAAABAAYAAAAZAA4AAABAABQAAAAbAA0AAAA+ABUAAAAZAA4AAABBABYAAAAZAA4AAABEABUAAAAZAA4AAABEABAAAAAbAA0AAABBAA4AAAAZAA4AAAA5AAoAAAAFAAMAAAA6AAoAAAAGAAMAAAA7AAoAAAAGAAMAAAA8AAoAAAAGAAMAAAA9AAoAAAAGAAMAAAA+AAoAAAAGAAMAAAA/AAoAAAAGAAMAAABAAAoAAAAGAAMAAABBAAoAAAAHAAMAAABAAAkAAAAGAAoAAABBAAkAAAAHAAoAAABBAAgAAAAHAAkAAAA/AAkAAAAMAA0AAAA+AAkAAAAKAA0AAAA7AAkAAAAIAA4AAAA7AAsAAAAUAAAAAAA7AAwAAAAUAAAAAAA8AAsAAAAVAAAAAAA8AAwAAAAVAAAAAABAAAwAAAAWAAAAAAA/AAwAAAAXAAAAAAA9AAsAAAASAAAAAAA/AAsAAAASAAAAAAA5AAsAAAAFAA4AAAA5AAwAAAAOAAUAAAA5AA0AAAAOAAYAAAA5AA4AAAANAAYAAAA5AA8AAAACAAcAAAA4AA8AAAACAAcAAAA3AA8AAAACAAcAAAA2AA8AAAACAAcAAAA6AA8AAAACAAcAAAA7AA8AAAACAAcAAAA8AA8AAAACAAcAAAA9AA8AAAADAAcAAAA1AA8AAAABAAcAAAA6AA4AAAAPAAcAAAA1AA4AAAAPAAcAAAA3ABAAAAAKAAwAAAA4ABAAAAALAAwAAAA5ABAAAAAMAAwAAAA6ABAAAAANAAwAAAA7ABAAAAAOAAwAAAA1ABAAAAAOAAwAAAA4AA4AAAANAAoAAAA4AA0AAAANAAkAAAA3AA0AAAAMAAkAAAA3AAwAAAAMAAgAAAAWABcAAAASAAoAAAAHABMAAAAFAAMAAAAIABMAAAAGAAMAAAAJABMAAAAGAAMAAAAKABMAAAAHAAMAAAAKABIAAAAHAAIAAAAKABEAAAAHAAIAAAAKABAAAAAHAAEAAAAJABAAAAAGAAEAAAAIABAAAAAGAAEAAAAHABAAAAAFAAEAAAAHABEAAAAFAAIAAAAHABIAAAAFAAIAAAAIABEAAAAGAAIAAAAIABIAAAAGAAIAAAAJABIAAAAGAAIAAAAJABEAAAAGAAIAAAAIABQAAAAUAAAAAAAHABQAAAAVAAAAAAAKABUAAAAXAAAAAAAHAA8AAAAJAAoAAAAGAA4AAAAIAAkAAAAGAA8AAAAIAAoAAAA9AAYAAAAcAAAAAAABABcAAAABAAcAAAACABcAAAACAAcAAAADABcAAAACAAcAAAAEABcAAAADAAcAAAABABgAAAALAAwAAAACABgAAAAMAAwAAAADABgAAAANAAwAAAAEABgAAAAOAAwAAAADABYAAAAPAAoAAAABABYAAAAPAAcAAAANABkAAAAPAAcAAAAMABkAAAABAAIAAAAMABgAAAABAAEAAAAXABYAAAAZAA4AAAAaABQAAAAZAA4AAAAbABIAAAAZAA4AAAAWABEAAAAZAA4AAAAVABUAAAAZAA4AAAAXABIAAAAZAA4AAAAYABcAAAAZAA4AAAA9ABEAAAAZAA4AAAA+ABAAAAAZAA4AAABCABIAAAAZAA4AAAAGABgAAAAZAA4AAAAJABkAAAAZAA4AAAAKABgAAAAZAA4AAAA=")
-tile_set = SubResource("TileSet_ne2mo")
-
-[node name="background" type="TileMapLayer" parent="world"]
-use_parent_material = true
-position = Vector2(1.0008854, 0.999114)
-tile_map_data = PackedByteArray("AAASAAcAAAAKAAsAAAASAAgAAAAKAAwAAAATAAgAAAALAAwAAAAUAAgAAAAMAAwAAAAVAAgAAAANAAwAAAAVAAcAAAANAAsAAAAWAAcAAAAKAAsAAAA=")
-tile_set = SubResource("TileSet_ne2mo")
 
 [node name="cloud platform" parent="." instance=ExtResource("1_b4j7a")]
 position = Vector2(26, 51)
@@ -471,14 +357,28 @@ zoom = Vector2(4, 4)
 limit_bottom = 495
 position_smoothing_enabled = true
 
-[node name="world end" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(567, 540)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world end"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_3bmlt")
 
+[node name="world" type="TileMap" parent="."]
+rotation = 0.00088570244
+tile_set = SubResource("TileSet_ne2mo")
+format = 2
+layer_0/tile_data = PackedInt32Array(458766, 65536, 7, 458767, 393216, 3, 458768, 393216, 3, 458769, 131072, 7, 458770, 131072, 7, 458771, 131072, 7, 393234, 589824, 4, 393236, 589824, 4, 327701, 589824, 4, 262166, 589824, 4, 393238, 589824, 4, 458772, 131072, 7, 458773, 131072, 7, 458774, 131072, 7, 458775, 131072, 7, 458776, 131072, 7, 262167, 458752, 7, 327703, 851968, 2, 327704, 851968, 2, 393240, 851968, 2, 393239, 851968, 2, 327705, 196608, 7, 458777, 458752, 3, 524313, 851968, 12, 524312, 786432, 12, 524311, 720896, 12, 327700, 589824, 10, 262163, 524288, 9, 327699, 524288, 10, 262168, 983040, 7, 393241, 983040, 7, 393232, 65536, 13, 393230, 65536, 7, 524303, 720896, 12, 524304, 786432, 12, 524305, 851968, 12, 589865, 1769472, 13, 786467, 1769472, 13, 852001, 1638400, 14, 852005, 1638400, 14, 786470, 1638400, 14, 983081, 1638400, 14, 1703948, 589824, 4, 1703949, 589824, 4, 1703950, 589824, 4, 1703951, 589824, 4, 1703952, 589824, 4, 1703953, 589824, 4, 1703954, 589824, 4, 1703955, 589824, 4, 1703956, 589824, 4, 1703957, 589824, 4, 1638421, 589824, 4, 1638422, 589824, 4, 1638423, 589824, 4, 1638424, 589824, 4, 1638425, 589824, 4, 1638426, 589824, 4, 1638427, 589824, 4, 1638428, 589824, 4, 1638429, 589824, 4, 1638430, 589824, 4, 1638431, 589824, 4, 1638432, 589824, 4, 1638433, 589824, 4, 1638434, 589824, 4, 1638435, 589824, 4, 1703971, 589824, 4, 1703972, 589824, 4, 1703973, 589824, 4, 1703974, 589824, 4, 1703975, 589824, 4, 1703976, 589824, 4, 1703977, 589824, 4, 1703978, 589824, 4, 1703979, 589824, 4, 1638443, 589824, 4, 1638444, 589824, 4, 1638446, 589824, 4, 1638449, 589824, 4, 1638448, 589824, 4, 1769487, 786432, 5, 1703958, 196608, 7, 1703970, 65536, 7, 1703980, 196608, 7, 2555952, 1572864, 4, 2424880, 1572864, 2, 2293808, 1572864, 2, 2162736, 1572864, 2, 2031664, 1572864, 0, 1966128, 917504, 7, 1900592, 917504, 7, 1835056, 917504, 7, 1703984, 917504, 5, 1769520, 917504, 6, 2621456, 1310720, 9, 2621457, 1310720, 9, 2621458, 1310720, 9, 2621459, 1310720, 9, 2621460, 1310720, 9, 2621461, 1310720, 9, 2621462, 1310720, 9, 2621463, 1310720, 9, 2621464, 1310720, 9, 2621465, 1310720, 9, 2621466, 1310720, 9, 2621467, 1310720, 9, 2621468, 1310720, 9, 2621469, 1310720, 9, 2621470, 1310720, 9, 2621471, 1310720, 9, 2621474, 1507328, 9, 2621475, 1507328, 9, 2621476, 1507328, 9, 2621477, 1507328, 9, 2621478, 1507328, 9, 2621479, 1507328, 9, 2621480, 1507328, 9, 2621481, 1507328, 9, 2621482, 1507328, 9, 2621483, 1507328, 9, 2621486, 1703936, 9, 2621487, 1703936, 9, 2621488, 1703936, 9, 2621489, 1703936, 9, 2621490, 1703936, 9, 2621491, 1703936, 9, 2621492, 1703936, 9, 2621493, 1703936, 9, 2621455, 1900544, 9, 2621454, 1900544, 9, 2621453, 1900544, 9, 2621452, 327680, 14, 2621451, 1703936, 9, 2621450, 1703936, 9, 2621449, 1703936, 9, 2621448, 1703936, 9, 2621447, 1703936, 9, 2621446, 1703936, 9, 2621445, 1703936, 9, 2621444, 1703936, 9, 2621443, 1703936, 9, 2621441, 1310720, 9, 2555922, 524288, 14, 2555926, 524288, 14, 2555930, 524288, 14, 2555933, 524288, 14, 2555940, 524288, 14, 2555943, 524288, 14, 2555945, 524288, 14, 1572901, 1179648, 10, 1572904, 1376256, 11, 1769497, 327680, 12, 1835033, 327680, 14, 1900569, 327680, 14, 1966105, 458752, 5, 2031641, 458752, 6, 2097177, 458752, 6, 2162713, 458752, 6, 2228249, 458752, 7, 2293785, 917504, 5, 2359321, 917504, 6, 2424857, 917504, 7, 2490393, 917504, 7, 2555929, 1572864, 4, 1769483, 786432, 5, 1769484, 917504, 5, 1835020, 917504, 6, 1900556, 917504, 6, 1966092, 917504, 7, 2031628, 851968, 6, 2097164, 1572864, 0, 2228236, 1572864, 2, 2359308, 1572864, 2, 2490380, 327680, 12, 2555916, 327680, 14, 1572889, 524288, 14, 1572893, 524288, 14, 1572896, 524288, 14, 1638418, 327680, 14, 1572882, 327680, 12, 1441810, 1572864, 2, 1310738, 1572864, 0, 1245202, 917504, 7, 1179666, 917504, 6, 1114130, 917504, 5, 1114131, 983040, 5, 1114132, 1048576, 5, 1114129, 851968, 5, 1114128, 786432, 5, 1179665, 1507328, 0, 1179667, 1441792, 0, 1048594, 589824, 10, 983057, 524288, 9, 1048593, 524288, 10, 1572890, 655360, 10, 1507355, 720896, 9, 1507354, 1376256, 11, 1441819, 720896, 8, 1572895, 917504, 10, 1572897, 983040, 10, 1572908, 393216, 10, 1572909, 458752, 10, 1507373, 458752, 9, 1376313, 327680, 1, 1441849, 327680, 2, 1507385, 327680, 3, 1507386, 393216, 3, 1507387, 458752, 3, 1441851, 458752, 2, 1376315, 458752, 1, 1376314, 393216, 1, 1441850, 393216, 2, 1310779, 983040, 7, 65550, 1769472, 13, 65554, 1638400, 14, 65548, 1638400, 14, 131083, 1638400, 14, 131088, 1638400, 14, 16, 1638400, 14, 327683, 1769472, 13, 327685, 1638400, 14, 393222, 1638400, 14, 393217, 1638400, 14, 1310784, 1769472, 13, 1376318, 1638400, 14, 1441857, 1638400, 14, 1376324, 1638400, 14, 1048644, 1769472, 13, 917569, 1638400, 14, 655417, 327680, 3, 655418, 393216, 3, 655419, 393216, 3, 655420, 393216, 3, 655421, 393216, 3, 655422, 393216, 3, 655423, 393216, 3, 655424, 393216, 3, 655425, 458752, 3, 589888, 393216, 10, 589889, 458752, 10, 524353, 458752, 9, 589887, 786432, 13, 589886, 655360, 13, 589883, 524288, 14, 720955, 1310720, 0, 786491, 1310720, 0, 720956, 1376256, 0, 786492, 1376256, 0, 786496, 1441792, 0, 786495, 1507328, 0, 720957, 1179648, 0, 720959, 1179648, 0, 720953, 327680, 14, 786489, 917504, 5, 852025, 917504, 6, 917561, 851968, 6, 983097, 131072, 7, 983096, 131072, 7, 983095, 131072, 7, 983094, 131072, 7, 983098, 131072, 7, 983099, 131072, 7, 983100, 131072, 7, 983101, 196608, 7, 983093, 65536, 7, 917562, 983040, 7, 917557, 983040, 7, 1048631, 655360, 12, 1048632, 720896, 12, 1048633, 786432, 12, 1048634, 851968, 12, 1048635, 917504, 12, 1048629, 917504, 12, 917560, 851968, 10, 852024, 851968, 9, 852023, 786432, 9, 786487, 786432, 8, 1507350, 1179648, 10, 1245191, 327680, 3, 1245192, 393216, 3, 1245193, 393216, 3, 1245194, 458752, 3, 1179658, 458752, 2, 1114122, 458752, 2, 1048586, 458752, 1, 1048585, 393216, 1, 1048584, 393216, 1, 1048583, 327680, 1, 1114119, 327680, 2, 1179655, 327680, 2, 1114120, 393216, 2, 1179656, 393216, 2, 1179657, 393216, 2, 1114121, 393216, 2, 1310728, 1310720, 0, 1310727, 1376256, 0, 1376266, 1507328, 0, 983047, 589824, 10, 917510, 524288, 9, 983046, 524288, 10, 393277, 1835008, 0, 1507329, 65536, 7, 1507330, 131072, 7, 1507331, 131072, 7, 1507332, 196608, 7, 1572865, 720896, 12, 1572866, 786432, 12, 1572867, 851968, 12, 1572868, 917504, 12, 1441795, 983040, 10, 1441793, 983040, 7, 1638413, 983040, 7)
+
 [node name="sky" parent="." instance=ExtResource("4_wo48x")]
-z_index = -24
+
+[node name="cloud platform2" parent="." instance=ExtResource("1_b4j7a")]
+position = Vector2(213, 106)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cloud platform2"]
+libraries = {
+&"": SubResource("AnimationLibrary_y0kc7")
+}
+autoplay = "move"
 
 [node name="kill zone" parent="." instance=ExtResource("7_y0kc7")]
 position = Vector2(870.00006, 490.00003)
@@ -520,51 +420,8 @@ position = Vector2(455, 185)
 [node name="cloud platform5" parent="platforms" instance=ExtResource("1_b4j7a")]
 position = Vector2(500, 204)
 
-[node name="cloud platform6" parent="platforms" instance=ExtResource("1_b4j7a")]
-position = Vector2(616, 177)
-
 [node name="cloud platform smaller4" parent="platforms" instance=ExtResource("8_ne2mo")]
 position = Vector2(407, 165)
-
-[node name="cloud platform2" parent="platforms" instance=ExtResource("1_b4j7a")]
-position = Vector2(213, 106)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/cloud platform2"]
-libraries = {
-&"": SubResource("AnimationLibrary_y0kc7")
-}
-autoplay = "move"
-
-[node name="cloud platform smaller5" parent="platforms" instance=ExtResource("8_ne2mo")]
-position = Vector2(830, 406)
-
-[node name="cloud platform smaller6" parent="platforms" instance=ExtResource("8_ne2mo")]
-position = Vector2(875, 415)
-
-[node name="cloud platform smaller7" parent="platforms" instance=ExtResource("8_ne2mo")]
-position = Vector2(883, 387)
-
-[node name="cloud platform7" parent="platforms" instance=ExtResource("1_b4j7a")]
-position = Vector2(821, 361)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/cloud platform7"]
-root_node = NodePath("../../cloud platform7")
-libraries = {
-&"": SubResource("AnimationLibrary_fldb1")
-}
-autoplay = "move"
-
-[node name="cloud platform8" parent="platforms" instance=ExtResource("1_b4j7a")]
-position = Vector2(862, 229)
-
-[node name="cloud platform smaller8" parent="platforms" instance=ExtResource("8_ne2mo")]
-position = Vector2(837, 211)
-
-[node name="cloud platform smaller9" parent="platforms" instance=ExtResource("8_ne2mo")]
-position = Vector2(869, 179)
-
-[node name="cloud platform9" parent="platforms" instance=ExtResource("1_b4j7a")]
-position = Vector2(811, 198)
 
 [node name="collectible" type="Node" parent="."]
 
@@ -588,107 +445,6 @@ position = Vector2(667, 126)
 z_index = 5
 position = Vector2(936, 326)
 
-[node name="spirit9" parent="collectible" instance=ExtResource("6_wo48x")]
-z_index = 5
-position = Vector2(869, 167)
-
 [node name="spirit6" parent="collectible" instance=ExtResource("6_wo48x")]
 z_index = 5
 position = Vector2(295, 240)
-
-[node name="spirit7" parent="collectible" instance=ExtResource("6_wo48x")]
-z_index = 5
-position = Vector2(143, 219)
-
-[node name="spirit8" parent="collectible" instance=ExtResource("6_wo48x")]
-z_index = 5
-position = Vector2(46, 342)
-
-[node name="enemies" type="Node" parent="."]
-
-[node name="evil rat" parent="enemies" instance=ExtResource("8_6cvei")]
-position = Vector2(629, 408)
-
-[node name="evil rat2" parent="enemies" instance=ExtResource("8_6cvei")]
-position = Vector2(269, 410)
-
-[node name="text" type="Node" parent="."]
-
-[node name="Label" type="Label" parent="text"]
-offset_left = 521.0
-offset_top = 345.0
-offset_right = 739.0
-offset_bottom = 368.0
-theme_override_colors/font_color = Color(0.5211406, 0.5211406, 0.5211405, 1)
-theme_override_fonts/font = ExtResource("9_6cvei")
-theme_override_font_sizes/font_size = 12
-text = "watch out for the enemy!"
-
-[node name="Label2" type="Label" parent="text"]
-offset_left = 828.0
-offset_top = 464.0
-offset_right = 1118.0
-offset_bottom = 487.0
-theme_override_colors/font_color = Color(0.52156866, 0.52156866, 0.52156866, 1)
-theme_override_fonts/font = ExtResource("9_6cvei")
-theme_override_font_sizes/font_size = 12
-text = "good thing you have nine lives. "
-
-[node name="Label3" type="Label" parent="text"]
-offset_left = 96.0
-offset_top = 59.0
-offset_right = 232.0
-offset_bottom = 82.0
-theme_override_colors/font_color = Color(0.52156866, 0.52156866, 0.52156866, 1)
-theme_override_fonts/font = ExtResource("9_6cvei")
-theme_override_font_sizes/font_size = 12
-text = "reach the moon!"
-
-[node name="Label4" type="Label" parent="text"]
-offset_left = 23.0
-offset_top = 465.0
-offset_right = 181.0
-offset_bottom = 488.0
-theme_override_colors/font_color = Color(0.52156866, 0.52156866, 0.52156866, 1)
-theme_override_fonts/font = ExtResource("9_6cvei")
-theme_override_font_sizes/font_size = 12
-text = "it hurts to fall..."
-
-[node name="Label5" type="Label" parent="text"]
-offset_left = 466.0
-offset_top = 60.0
-offset_right = 720.0
-offset_bottom = 83.0
-theme_override_colors/font_color = Color(0.52156866, 0.52156866, 0.52156866, 1)
-theme_override_fonts/font = ExtResource("9_6cvei")
-theme_override_font_sizes/font_size = 12
-text = "there nine spirits to find..."
-
-[node name="Label6" type="Label" parent="text"]
-offset_left = 409.0
-offset_top = 40.0
-offset_right = 657.0
-offset_bottom = 63.0
-theme_override_colors/font_color = Color(0.52156866, 0.52156866, 0.52156866, 1)
-theme_override_fonts/font = ExtResource("9_6cvei")
-theme_override_font_sizes/font_size = 12
-text = "you've found a spirit!"
-
-[node name="Label7" type="Label" parent="text"]
-offset_left = 898.0
-offset_top = 41.0
-offset_right = 1146.0
-offset_bottom = 64.0
-theme_override_colors/font_color = Color(0.52156866, 0.52156866, 0.52156866, 1)
-theme_override_fonts/font = ExtResource("9_6cvei")
-theme_override_font_sizes/font_size = 12
-text = "one more level to go!"
-
-[node name="cloud platform smaller" parent="." instance=ExtResource("8_ne2mo")]
-position = Vector2(244, 284)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="cloud platform smaller"]
-libraries = {
-&"": SubResource("AnimationLibrary_igmy8")
-}
-autoplay = "move"
