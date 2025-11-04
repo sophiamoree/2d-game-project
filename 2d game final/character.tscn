@@ -37,15 +37,15 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-823, 519)
+position = Vector2(-978, 562)
 shape = SubResource("RectangleShape2D_pjt0s")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-815.00006, 509.99997)
+position = Vector2(-971.00006, 554)
 scale = Vector2(11.429687, 7.8846154)
 sprite_frames = SubResource("SpriteFrames_wfnr8")
 autoplay = "default"
 frame_progress = 0.24739188
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-819, 512)
+position = Vector2(-981, 563)
