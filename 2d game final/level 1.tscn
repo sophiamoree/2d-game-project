@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://digeisf8yv00b"]
+[gd_scene load_steps=10 format=3 uid="uid://bye8uov6ntnbf"]
 
 [ext_resource type="Texture2D" uid="uid://btsxesdbsmt2v" path="res://Free/Background/Blue.png" id="1_0t3ih"]
 [ext_resource type="Texture2D" uid="uid://wsoden2rlmo" path="res://Free/Traps/Platforms/Grey On (32x8).png" id="2_2ow8g"]
-[ext_resource type="PackedScene" uid="uid://cwjivekxq8e6c" path="res://character.tscn" id="3_2ow8g"]
+[ext_resource type="PackedScene" uid="uid://euelpfekyhv" path="res://character.tscn" id="3_2ow8g"]
 [ext_resource type="Texture2D" uid="uid://c13fjauwrbjeq" path="res://Free/Traps/Platforms/Grey Off.png" id="3_tbpbd"]
 [ext_resource type="Texture2D" uid="uid://duqvje0i6pjqq" path="res://Free/Terrain/Terrain (16x16).png" id="4_d05ww"]
 
