@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3 uid="uid://l3tdrlrg0ocf"]
+
+[ext_resource type="Texture2D" uid="uid://b86gn2j7cup6n" path="res://sky background/Clouds/Clouds 5/1.png" id="1_kbped"]
+[ext_resource type="Texture2D" uid="uid://dfrakc1x3ylq2" path="res://sky background/Clouds/Clouds 5/3.png" id="2_fj5cn"]
+[ext_resource type="Texture2D" uid="uid://dnkyl2huyv7mv" path="res://sky background/Clouds/Clouds 5/4.png" id="3_iy58a"]
+[ext_resource type="Texture2D" uid="uid://cv3s7dgq4ijps" path="res://sky background/Clouds/Clouds 5/5.png" id="4_6a6wx"]
+[ext_resource type="Texture2D" uid="uid://drecdupbexddq" path="res://sky background/Clouds/Clouds 5/2.png" id="5_sky72"]
+[ext_resource type="AudioStream" uid="uid://dsfmk6ev6ofrt" path="res://Vitory_Awaits.ogg" id="6_fj5cn"]
+
+[sub_resource type="GDScript" id="GDScript_0ytqx"]
+script/source = "extends Control
+
+func _ready():
+	# Wait a moment for everything to load
+	await get_tree().process_frame
+	
+	# Connect the button (SAFE WAY)
+	if has_node(\"VBoxContainer/Button\"):
+		$VBoxContainer/Button.pressed.connect(_on_start_button_pressed)
+	else:
+		print(\"ERROR: Button not found!\")
+	
+	# Play music (SAFE WAY)
+	if has_node(\"BackgroundMusic\"):
+		$BackgroundMusic.play()
+	else:
+		print(\"ERROR: BackgroundMusic node not found!\")
+
+func _on_start_button_pressed():
+	# Stop music if it exists
+	if has_node(\"BackgroundMusic\"):
+		$BackgroundMusic.stop()
+	
+	# Load Level 1
+	get_tree().change_scene_to_file(\"res://scenes/level_2.tscn\")
+"
+
+[sub_resource type="SystemFont" id="SystemFont_kbped"]
+
+[sub_resource type="FontVariation" id="FontVariation_fj5cn"]
+base_font = SubResource("SystemFont_kbped")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_0ytqx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kbped")
+
+[node name="8" type="Sprite2D" parent="TextureRect"]
+position = Vector2(374, 214)
+texture = ExtResource("2_fj5cn")
+
+[node name="7" type="Sprite2D" parent="TextureRect"]
+position = Vector2(862, 486)
+texture = ExtResource("3_iy58a")
+
+[node name="5" type="Sprite2D" parent="TextureRect"]
+position = Vector2(298, 473)
+texture = ExtResource("4_6a6wx")
+
+[node name="4" type="Sprite2D" parent="TextureRect"]
+position = Vector2(834, 483)
+texture = ExtResource("3_iy58a")
+
+[node name="3" type="Sprite2D" parent="TextureRect"]
+position = Vector2(766, 163)
+texture = ExtResource("2_fj5cn")
+
+[node name="2" type="Sprite2D" parent="TextureRect"]
+position = Vector2(154, 151)
+texture = ExtResource("5_sky72")
+
+[node name="6" type="Sprite2D" parent="TextureRect"]
+position = Vector2(538, 87)
+texture = ExtResource("2_fj5cn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 12.0
+offset_right = 979.0
+offset_bottom = 623.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_fj5cn")
+theme_override_font_sizes/font_size = 100
+text = " Run Kitty Run"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "           CONTROLS:
+       ← → ARROWS to Move
+           SPACE to Jump
+"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "START"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_fj5cn")
+parameters/looping = false

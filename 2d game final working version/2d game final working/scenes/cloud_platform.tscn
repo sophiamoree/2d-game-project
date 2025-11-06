@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://drrrav7wpwoqr"]
+
+[ext_resource type="Texture2D" uid="uid://ynvredr3fpsc" path="res://ruins tileset/Dungeon Ruins Tileset Night.png" id="1_75d3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75d3x"]
+size = Vector2(21.011318, 6.9659524)
+
+[node name="cloud platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_75d3x")
+region_enabled = true
+region_rect = Rect2(310, 229, 21, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5000005, 0.50000024)
+rotation = 0.0016208768
+shape = SubResource("RectangleShape2D_75d3x")
+one_way_collision = true

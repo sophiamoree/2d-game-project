@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://qy7dgde0s3eo"]
+
+[ext_resource type="Script" uid="uid://q2r4o6qxqycu" path="res://scenes/evil_rat.gd" id="1_hu8l7"]
+[ext_resource type="Texture2D" uid="uid://i4a8oiwxopu3" path="res://evil rat/Rat_Full.png" id="1_uf6uc"]
+[ext_resource type="PackedScene" uid="uid://cjil05iv1llmw" path="res://scenes/kill_zone.tscn" id="2_jy3vg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjd2t"]
+atlas = ExtResource("1_uf6uc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hxit"]
+atlas = ExtResource("1_uf6uc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgl10"]
+atlas = ExtResource("1_uf6uc")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmrpk"]
+atlas = ExtResource("1_uf6uc")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n083o"]
+atlas = ExtResource("1_uf6uc")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bfdow"]
+animations = [{
+"frames": [{
+"duration": 1.01,
+"texture": SubResource("AtlasTexture_wjd2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hxit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgl10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmrpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n083o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5sdau"]
+size = Vector2(15, 6.5)
+
+[node name="evil rat" type="Node2D"]
+script = ExtResource("1_hu8l7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -19)
+scale = Vector2(1.0708007, 1.1728516)
+sprite_frames = SubResource("SpriteFrames_bfdow")
+autoplay = "default"
+frame_progress = 0.30703795
+
+[node name="kill zone" parent="." instance=ExtResource("2_jy3vg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill zone"]
+position = Vector2(0.5, -3.75)
+shape = SubResource("RectangleShape2D_5sdau")
+
+[node name="raycast right" type="RayCast2D" parent="."]
+position = Vector2(-5.9604645e-08, -2)
+scale = Vector2(1.0708007, 1.1728516)
+target_position = Vector2(12.140448, 0.8526228)
+
+[node name="raycast left" type="RayCast2D" parent="."]
+position = Vector2(-3.5527137e-15, -2)
+scale = Vector2(1.0708007, 1.1728516)
+target_position = Vector2(-12.140448, 0.8526228)
