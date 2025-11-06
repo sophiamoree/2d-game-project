@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://com315v5a0wwk"]
+
+[ext_resource type="Texture2D" uid="uid://cfxhatrmc1paj" path="res://cat/CatsBlack16x16Tile.png" id="1_hcucf"]
+[ext_resource type="Script" uid="uid://dqw6jv1mitkxu" path="res://scenes/cat.gd" id="1_se5fe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52fj1"]
+atlas = ExtResource("1_hcucf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fl1u"]
+atlas = ExtResource("1_hcucf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w46py"]
+atlas = ExtResource("1_hcucf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u0g4"]
+atlas = ExtResource("1_hcucf")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hdoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52fj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fl1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w46py")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u0g4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2v165"]
+radius = 2.0
+
+[node name="cat" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 2
+script = ExtResource("1_se5fe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -11)
+scale = Vector2(1.25, 1.375)
+sprite_frames = SubResource("SpriteFrames_2hdoq")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.21921119
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_2v165")
